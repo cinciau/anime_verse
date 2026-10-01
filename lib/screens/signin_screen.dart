@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/app_scaffold.dart';
 import 'signup_screen.dart';
 import 'home_screen.dart';
+import 'main_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -154,7 +155,7 @@ class SignInScreen extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                              builder: (context) => const MainScreen(),
                             ),
                           );
                         },
