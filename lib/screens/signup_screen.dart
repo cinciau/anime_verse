@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; 
+import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/app_scaffold.dart';
-import 'signup_screen.dart';
+import 'signin_screen.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +31,9 @@ class SignInScreen extends StatelessWidget {
                   children: [
                     SizedBox(height: screenHeight * 0.14),
                     
-                    // Signin Title
+                    // SignUp Title
                     Text(
-                      'Welcome Back!',
+                      'Join AnimeVerse!',
                       style: TextStyle(
                         fontSize: screenWidth * (isLargeScreen ? 0.06 : 0.1),
                         fontWeight: FontWeight.w800,
@@ -45,7 +45,7 @@ class SignInScreen extends StatelessWidget {
                     
                     // Subtitle
                     Text(
-                      'Sign in to continue your anime journey',
+                      'Create your account and start exploring',
                       style: TextStyle(
                         fontSize: screenWidth * 0.035,
                         fontWeight: FontWeight.w500,
@@ -122,33 +122,15 @@ class SignInScreen extends StatelessWidget {
                       ),
                       obscureText: true,
                     ),
-                    SizedBox(height: screenHeight * 0.01),
+                    SizedBox(height: screenHeight * 0.04),
                     
-                    // Forgot Password
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          // TODO: Implement forgot password functionality
-                        },
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.035,
-                            color: Colors.blue.shade300,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: screenHeight * 0.03),
-                    
-                    // Sign In Button
+                    // Sign Up Button
                     SizedBox(
                       width: double.infinity,
                       height: screenHeight * 0.075,
                       child: ElevatedButton(
                         onPressed: () {
-                          // TODO: Implement sign in functionality
+                          // TODO: Implement sign up functionality
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue.withValues(alpha: 0.8),
@@ -159,7 +141,7 @@ class SignInScreen extends StatelessWidget {
                           elevation: 5,
                         ),
                         child: Text(
-                          'Sign In',
+                          'Sign Up',
                           style: TextStyle(
                             fontSize: screenWidth * 0.045,
                             fontWeight: FontWeight.w600,
@@ -198,7 +180,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     
-                    // Sign in with Google
+                    // Continue with Google Button
                     SizedBox(
                       width: double.infinity,
                       height: screenHeight * 0.075,
@@ -234,38 +216,44 @@ class SignInScreen extends StatelessWidget {
                     ),
                     SizedBox(height: screenHeight * 0.04),
                     
-                    // Sign up link
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have an account? ",
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.04,
-                            color: Colors.white70,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                       // Navigasi ke SignUpScreen
-                         Navigator.push(
-                          context,
-                         MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(), // Pastikan file SignUpScreen sudah di-import
-                        ),
-                           );
-                             },
-                          child: Text(
-                            'Sign Up',
+                    // Sign in link (Already have an account?)
+                    // Sign in link di SignUpScreen
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already have an account? ",
                             style: TextStyle(
                               fontSize: screenWidth * 0.04,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.blue.shade300,
+                              color: Colors.white70,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                          TextButton(
+                            onPressed: () {
+                              // Kembali ke halaman Sign In sebelumnya
+                              Navigator.pop(context);
+                              
+                              // ATAU jika ingin memastikan berpindah secara spesifik:
+                              /*
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignInScreen(),
+                                ),
+                              );
+                              */
+                            },
+                            child: Text(
+                              'Sign In',
+                              style: TextStyle(
+                                fontSize: screenWidth * 0.04,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.blue.shade300,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     SizedBox(height: screenHeight * 0.05),
                   ],
                 ),
