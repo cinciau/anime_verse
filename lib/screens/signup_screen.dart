@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/app_scaffold.dart';
 import 'signin_screen.dart';
 
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 

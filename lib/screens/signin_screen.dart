@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart'; 
 import '../widgets/app_scaffold.dart';
 import 'signup_screen.dart';
+import 'home_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -88,6 +89,7 @@ class SignInScreen extends StatelessWidget {
                     SizedBox(height: screenHeight * 0.02),
                     
                     // Password TextField
+                   // Password TextField
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -142,13 +144,19 @@ class SignInScreen extends StatelessWidget {
                     ),
                     SizedBox(height: screenHeight * 0.03),
                     
-                    // Sign In Button
+                    // Sign In Button (Sudah ditambahkan navigasi ke HomeScreen)
                     SizedBox(
                       width: double.infinity,
                       height: screenHeight * 0.075,
                       child: ElevatedButton(
                         onPressed: () {
-                          // TODO: Implement sign in functionality
+                          // Navigasi ke HomeScreen dan mengganti halaman login
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomeScreen(),
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue.withValues(alpha: 0.8),
